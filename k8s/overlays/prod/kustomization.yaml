@@ -1,0 +1,22 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: llm-prod
+resources:
+  - ../../base
+  - hpa.yaml
+  - pdb.yaml
+patches:
+  - target:
+      kind: Deployment
+      name: llmops-gateway
+    patch: |-
+      - op: replace
+        path: /spec/replicas
+        value: 2
+  - target:
+      kind: ConfigMap
+      name: llmops-gateway-config
+    patch: |-
+      - op: replace
+        path: /data/BACKEND
+        value: openai
