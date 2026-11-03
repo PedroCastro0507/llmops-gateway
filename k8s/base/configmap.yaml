@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: llmops-gateway-config
+data:
+  BACKEND: mock
+  UPSTREAM_BASE_URL: http://ollama:11434/v1
+  DEFAULT_MODEL: llama3.2:1b
+  MAX_PROMPT_CHARS: "16000"
+  MAX_OUTPUT_TOKENS: "1024"
+  REQUEST_TIMEOUT_S: "60"
