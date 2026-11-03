@@ -1,0 +1,9 @@
+.git
+.github
+tests
+k8s
+argocd
+deploy
+**/__pycache__
+.venv
+*.md
